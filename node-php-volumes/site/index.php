@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>Team:</h1>
+    <h1>Team members:</h1>
     <ul>
       <?php 
         foreach(json_decode(file_get_contents('http://players'))->players as $player) {
