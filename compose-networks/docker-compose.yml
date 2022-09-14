@@ -3,5 +3,14 @@ version: '3'
 services:
   db:
     build: ./db
-    environment: 
-      POSTGRES_PASSWORD: password
+  apparel:
+    build: ./apparel
+    volumes:
+      - ./apparel:/app
+    depends_on:
+      - db
+    ports:
+      - 5001:80
+    environment:
+      POSTGRES_DB: 'db'
+      POSTGRES_HOST_AUTH_METHOD: "trust"
